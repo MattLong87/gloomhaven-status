@@ -1,6 +1,7 @@
 {
   "name": "gloomhaven-status",
   "version": "0.1.0",
+  "homepage": "http://mattlong87.github.io/gloomhaven-status",
   "private": true,
   "dependencies": {
     "react": "^15.6.1",
