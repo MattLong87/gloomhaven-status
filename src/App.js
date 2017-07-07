@@ -3,6 +3,10 @@ import Tracker from './Tracker';
 import 'reset-css';
 import './css/styles.css';
 
+document.ontouchmove = function(e){
+  e.preventDefault();
+}
+
 class App extends Component {
   render() {
     return (
