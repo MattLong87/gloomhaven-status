@@ -52,6 +52,7 @@ body{
     max-height: 400px;
     max-width: 500px;
     border: 5px solid #333;
+    vertical-align: top; /* reduces scroll with 100vh */
 }
 
 .xp{
