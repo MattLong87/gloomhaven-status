@@ -3,17 +3,27 @@ import React from 'react';
 export default class Tracker extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: this.props.type === "Health" ? 20 : 0 }
+        const cachedState = localStorage.getItem(this.props.type);
+        if (cachedState) {
+            this.state = JSON.parse(cachedState);
+        }
+        else {
+            this.state = { value: this.props.type === "Health" ? 20 : 0 }
+        }
     }
 
     increment(e) {
         e.preventDefault();
-        this.setState({ value: this.state.value + 1 });
+        let newState = {value: this.state.value + 1};
+        localStorage.setItem(this.props.type, JSON.stringify(newState));
+        this.setState(newState);
     }
 
     decrement(e) {
         e.preventDefault();
-        this.setState({ value: this.state.value - 1 });
+        let newState = {value: this.state.value - 1};
+        localStorage.setItem(this.props.type, JSON.stringify(newState));
+        this.setState(newState);
     }
 
     render() {
