@@ -5,16 +5,19 @@ import './css/styles.css';
 
 let orientation;
 
-if (window.matchMedia("(orientation: portrait)").matches){
-  orientation = "portrait";
-}
+var mediaQueryList = window.matchMedia("(orientation: portrait)");
+mediaQueryList.addListener(() => {
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    orientation = "portrait";
+  }
 
-if (window.matchMedia("(orientation: landscape)").matches){
-  orientation = "landscape";
-}
+  if (window.matchMedia("(orientation: landscape)").matches) {
+    orientation = "landscape";
+  }
+})
 
-document.ontouchmove = function(e){
-  if (orientation === "landscape"){
+document.ontouchmove = function (e) {
+  if (orientation === "landscape") {
     e.preventDefault();
   }
 }
