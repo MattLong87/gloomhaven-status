@@ -3,8 +3,20 @@ import Tracker from './Tracker';
 import 'reset-css';
 import './css/styles.css';
 
+let orientation;
+
+if (window.matchMedia("(orientation: portrait)").matches){
+  orientation = "portrait";
+}
+
+if (window.matchMedia("(orientation: landscape)").matches){
+  orientation = "landscape";
+}
+
 document.ontouchmove = function(e){
-  e.preventDefault();
+  if (orientation === "landscape"){
+    e.preventDefault();
+  }
 }
 
 class App extends Component {
