@@ -7,7 +7,6 @@ body{
     color: #fff;
     text-align: center;
     font-family: "Arial", sans-serif;
-    overflow: hidden;
 }
 
 .health{
@@ -81,5 +80,17 @@ body{
     .xp{
         border-top: none;
         border-left: 5px solid #333;
+    }
+}
+
+@media screen and (orientation: portrait){
+    body{
+        overflow: scroll;
+    }
+}
+
+@media screen and (orientation: landscape){
+    body{
+        overflow: hidden;
     }
 }
