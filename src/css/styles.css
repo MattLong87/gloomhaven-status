@@ -9,11 +9,15 @@ body{
     font-family: "Arial", sans-serif;
 }
 
-.health{
+.health, .bthealth{
     background: #d42503;
 }
 
-.xp{
+.bearhealth{
+    background: #6d4c41;
+}
+
+.xp, .btxp{
     background: #2e74de;
 }
 
@@ -55,6 +59,10 @@ body{
     vertical-align: top; /* reduces scroll with 100vh */
 }
 
+.bthealth, .bearhealth, .btxp {
+    width: 33%;
+}
+
 .xp{
     border-left: none;
 }
@@ -71,10 +79,52 @@ body{
     display: none;
 }
 
+.info-button{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 99;
+    background: none;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.bt-button{
+    background: none;
+    border: 3px solid white;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 5px 10px;
+}
+
+.modal{
+    position: fixed;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, .8);
+}
+
 @media screen and (orientation: portrait){
     .tracker{
         height: 50vh;
         width: 100%;
+    }
+
+    .bearhealth, .bthealth, .btxp{
+        height: 33vh;
+    }
+
+    .bearhealth h1, .bthealth h1, .btxp h1{
+        font-size: 100px;
     }
 
     .xp{

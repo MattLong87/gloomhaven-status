@@ -23,11 +23,62 @@ document.ontouchmove = function (e) {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      btActive: false,
+      showModal: false
+    }
+  }
+
+  toggleBT(e) {
+    e.preventDefault();
+    this.setState({
+      btActive: !this.state.btActive,
+      showModal: this.state.showModal
+    });
+  }
+
+  toggleModal(e){
+    e.preventDefault();
+    this.setState({
+      btActive: this.state.btActive,
+      showModal: !this.state.showModal
+    })
+  }
+
   render() {
-    return (
-      <div className="App">
+    const BTTrackers = (
+      <div>
+        <Tracker type="BearHealth" />
+        <Tracker type="BTHealth" />
+        <Tracker type="BTXP" />
+      </div>
+    );
+
+    const normalTrackers = (
+      <div>
         <Tracker type="Health" />
         <Tracker type="XP" />
+      </div>
+    )
+
+    let trackers = this.state.btActive ? BTTrackers : normalTrackers;
+
+    let modal;
+    if (this.state.showModal) {
+      modal = (
+        <div className="modal">
+          <button onClick={(e) => this.toggleBT(e)} className="bt-button">Enable Features for Two-Mini Class</button>
+        </div>
+      )
+    }
+
+    return (
+      <div className="App">
+        {modal}
+        <button onClick={(e) => this.toggleModal(e)} className="info-button">i</button>
+        {trackers}
       </div>
     );
   }
